@@ -9,7 +9,7 @@ package DBMain;
  *
  * @author James Agbotta
  */
-public class Address {
+public class Address implements XMLStringInterface{
     private int houseNumber;
 	private String houseName;
 	private String streetName;
@@ -66,6 +66,17 @@ public class Address {
             this.townCity = townCity;
         }
         
+        @Override
+        public String toXMLString(){
+        String temp = "<address>";
+        temp = temp + "<houseNumber>"+houseNumber+"</houseNumber>";
+        temp = temp + "<houseName>"+houseName+"</houseName>";
+        temp = temp + "<streetName>"+streetName+"</streetName>";
+        temp = temp + "<postCode>"+postCode+"</postCode>";
+        temp = temp + "<townCity>"+townCity+"</townCity>";
+        temp = temp + "</address>";
+        return temp;
+        }
         
         
 }

@@ -18,7 +18,7 @@ public class ExpatDB {
         // TODO code application logic here
         ArrayList<Person> persons = new ArrayList<Person>();
         InOut reader = new InOut();
-        System.out.println("Working!");
+        System.out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         
         
     }

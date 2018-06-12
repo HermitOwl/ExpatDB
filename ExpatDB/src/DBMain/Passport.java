@@ -9,7 +9,7 @@ import java.util.Date;
  *
  * @author James Agbotta
  */
-public class Passport {
+public class Passport implements XMLStringInterface{
     private String passportNumber;
     private String currentNationality;
     private String placeOfIssue;
@@ -74,6 +74,18 @@ public class Passport {
     
    public void setDateOfExpiry( Date dateOfExpiry){
         this.dateOfExpiry = dateOfExpiry;
+    }
+
+    @Override
+    public String toXMLString() {
+        String temp ="<passport>";
+        temp = temp + "<passportNumber>"+passportNumber+"</passportNumber>";
+        temp = temp + "<currentNationality>"+currentNationality+"</currentNationality>";
+        temp = temp + "<placeOfIssue>"+placeOfIssue+"</placeOfIssue>";
+        temp = temp + "<dateOfIssue>"+dateOfIssue+"</dateOfIssue>";
+        temp = temp + "<dateOfExpiry>"+dateOfExpiry+"</dateOfExpiry>";
+        temp = temp + "<previousNationality>"+previousNationality+"</previousNationality>";
+        return temp;
     }
     
 }

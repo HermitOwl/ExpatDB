@@ -9,7 +9,7 @@ package DBMain;
  *
  * @author James Agbotta
  */
-public class Person {
+public class Person implements XMLStringInterface{
         private String title;
 	private String firstName;
 	private String middleName;
@@ -83,6 +83,10 @@ public class Person {
         return maritalStatus;
         }
         
+        public String[] getMaritalStatusList(){
+            return maritalStatusList;
+        }
+        
         public void setTitle(String title){
         this.title =title;
         }
@@ -123,6 +127,31 @@ public class Person {
         this.maritalStatus = maritalStatus;
         }
        
+        public String toString(){
+        //TODO: Placeholder. remove when complete 
+            String temp ="";
         
+        return temp;
+        }
+        
+        @Override
+        public String toXMLString(){
+        //TODO: Placeholder. remove when complete 
+            String temp ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+            temp = temp + "<Person>";
+            temp = temp + "<title>"+title+"</title>";
+            temp = temp + "<firstName>"+firstName+"</firstName>";
+            temp = temp + "<middleName>"+middleName+"</middleName>";
+            temp = temp + "<lastName>"+lastName+"</lastName>";
+            temp = temp + "<age>"+age+"</age>";
+            temp = temp + "<gender>"+this.getGender()+"</gender>";
+            temp = temp + this.address.toXMLString();
+            temp = temp + "<>"+"</>";
+            temp = temp + "<>";
+            temp = temp + "<>"+"</>";
+            
+            temp = temp + "</Person>";
+        return temp;
+        }
         
 }

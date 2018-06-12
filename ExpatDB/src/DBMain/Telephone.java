@@ -9,7 +9,7 @@ package DBMain;
  *
  * @author James Agbotta
  */
-public class Telephone {
+public class Telephone implements XMLStringInterface{
     private String phoneNumber;
     private static String[] phoneNumberType= {"HOME", "WORK", "MOBILE", "OTHER"};
     private int numberType;
@@ -42,6 +42,11 @@ public class Telephone {
     
     public void setNumberType(int numberType){
         this.numberType = numberType;
+    }
+
+    @Override
+    public String toXMLString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
    
