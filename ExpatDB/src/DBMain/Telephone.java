@@ -46,7 +46,11 @@ public class Telephone implements XMLStringInterface{
 
     @Override
     public String toXMLString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      String temp = "<telephone>\n";
+      temp = temp + "<phoneNumber>" +phoneNumber+ "</phoneNumber>\n";
+      temp = temp + "<numberType>" + numberType + "</numberType>\n";
+      temp = temp + "</telephone>\n";
+      return temp;
     }
     
    

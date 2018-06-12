@@ -17,6 +17,7 @@ public class Person implements XMLStringInterface{
 	private int age;
 	private boolean gender;
 	private Address address ;
+        private Telephone telephone;
 	private Passport passport;
 	private String email;
         private String profession;
@@ -31,6 +32,7 @@ public class Person implements XMLStringInterface{
 	age  = 0;
 	gender  = false;
 	address  = new Address();
+        telephone = new Telephone();
 	passport = new Passport();
 	email = "";
         profession = "";
@@ -65,6 +67,10 @@ public class Person implements XMLStringInterface{
         
         public Address getAddress(){
         return address;
+        }
+        
+        public Telephone getTelephone(){
+        return telephone;
         }
         
         public Passport getPassport(){
@@ -111,6 +117,10 @@ public class Person implements XMLStringInterface{
             this.address = address;
         }
         
+        public void setTelephone(Telephone telephone){
+        this.telephone = telephone;
+        }
+        
         public void setPassport(Passport passport){
             this.passport = passport;
         }
@@ -137,20 +147,20 @@ public class Person implements XMLStringInterface{
         @Override
         public String toXMLString(){
         //TODO: Placeholder. remove when complete 
-            String temp ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-            temp = temp + "<Person>";
-            temp = temp + "<title>"+title+"</title>";
-            temp = temp + "<firstName>"+firstName+"</firstName>";
-            temp = temp + "<middleName>"+middleName+"</middleName>";
-            temp = temp + "<lastName>"+lastName+"</lastName>";
-            temp = temp + "<age>"+age+"</age>";
-            temp = temp + "<gender>"+this.getGender()+"</gender>";
+            String temp ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+            temp = temp + "<Person>\n";
+            temp = temp + "<title>"+title+"</title>\n";
+            temp = temp + "<firstName>"+firstName+"</firstName>\n";
+            temp = temp + "<middleName>"+middleName+"</middleName>\n";
+            temp = temp + "<lastName>"+lastName+"</lastName>\n";
+            temp = temp + "<age>"+age+"</age>\n";
+            temp = temp + "<gender>"+this.getGender()+"</gender>\n";
             temp = temp + this.address.toXMLString();
-            temp = temp + "<>"+"</>";
-            temp = temp + "<>";
-            temp = temp + "<>"+"</>";
-            
-            temp = temp + "</Person>";
+            temp = temp + "<telephone>"+telephone+"</telephone>\n";
+            temp = temp + this.passport.toXMLString();
+            temp = temp + "<email>"+email +"</email>\n";
+            temp = temp + "<profession>"+profession+"</profession>\n";
+            temp = temp + "</Person>\n";
         return temp;
         }
         

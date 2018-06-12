@@ -68,13 +68,13 @@ public class Address implements XMLStringInterface{
         
         @Override
         public String toXMLString(){
-        String temp = "<address>";
-        temp = temp + "<houseNumber>"+houseNumber+"</houseNumber>";
-        temp = temp + "<houseName>"+houseName+"</houseName>";
-        temp = temp + "<streetName>"+streetName+"</streetName>";
-        temp = temp + "<postCode>"+postCode+"</postCode>";
-        temp = temp + "<townCity>"+townCity+"</townCity>";
-        temp = temp + "</address>";
+        String temp = "<address>\n";
+        temp = temp + "<houseNumber>"+houseNumber+"</houseNumber>\n";
+        temp = temp + "<houseName>"+houseName+"</houseName>\n";
+        temp = temp + "<streetName>"+streetName+"</streetName>\n";
+        temp = temp + "<postCode>"+postCode+"</postCode>\n";
+        temp = temp + "<townCity>"+townCity+"</townCity>\n";
+        temp = temp + "</address>\n";
         return temp;
         }
         

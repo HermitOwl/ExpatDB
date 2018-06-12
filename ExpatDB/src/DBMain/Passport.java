@@ -78,13 +78,14 @@ public class Passport implements XMLStringInterface{
 
     @Override
     public String toXMLString() {
-        String temp ="<passport>";
-        temp = temp + "<passportNumber>"+passportNumber+"</passportNumber>";
-        temp = temp + "<currentNationality>"+currentNationality+"</currentNationality>";
-        temp = temp + "<placeOfIssue>"+placeOfIssue+"</placeOfIssue>";
-        temp = temp + "<dateOfIssue>"+dateOfIssue+"</dateOfIssue>";
-        temp = temp + "<dateOfExpiry>"+dateOfExpiry+"</dateOfExpiry>";
-        temp = temp + "<previousNationality>"+previousNationality+"</previousNationality>";
+        String temp ="<passport>\n";
+        temp = temp + "<passportNumber>"+passportNumber+"</passportNumber>\n";
+        temp = temp + "<currentNationality>"+currentNationality+"</currentNationality>\n";
+        temp = temp + "<placeOfIssue>"+placeOfIssue+"</placeOfIssue>\n";
+        temp = temp + "<dateOfIssue>"+dateOfIssue+"</dateOfIssue>\n";
+        temp = temp + "<dateOfExpiry>"+dateOfExpiry+"</dateOfExpiry>\n";
+        temp = temp + "<previousNationality>"+previousNationality+"</previousNationality>\n";
+        temp = temp + "</passport>\n";
         return temp;
     }
     
