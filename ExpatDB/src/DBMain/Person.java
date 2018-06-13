@@ -147,8 +147,7 @@ public class Person implements XMLStringInterface{
         @Override
         public String toXMLString(){
         //TODO: Placeholder. remove when complete 
-            String temp ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-            temp = temp + "<Person>\n";
+            String temp = "<Person>\n";
             temp = temp + "<title>"+title+"</title>\n";
             temp = temp + "<firstName>"+firstName+"</firstName>\n";
             temp = temp + "<middleName>"+middleName+"</middleName>\n";
