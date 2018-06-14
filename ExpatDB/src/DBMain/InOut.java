@@ -12,6 +12,6 @@ import java.io.*;
  */
 public class InOut {
     private ArrayList<Person> persons;
-    private ArrayList<File> userfiles;
+    private String fileName;
     //"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 }
