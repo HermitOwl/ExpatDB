@@ -37,7 +37,7 @@ public class Passport implements XMLStringInterface{
     return passportNumber;
     }
     
-    public String getCurrentNumber(){
+    public String getCurrentNationalityNumber(){
     return currentNationality;
     }
     

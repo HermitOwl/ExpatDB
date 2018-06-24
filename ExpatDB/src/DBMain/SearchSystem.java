@@ -15,9 +15,21 @@ public class SearchSystem {
     private ArrayList<Person> currentList;// for list manipulations like searches and sorts
     
     
+    
     public SearchSystem(){
     loadedList = new ArrayList();
     currentList = new ArrayList();
+
     }
+    
+    
+    public ArrayList<Person> getLoadedList(){
+    return loadedList;
+    }
+    
+    public ArrayList<Person> getCurrentList(){
+    return currentList;
+    }
+    
     
 }

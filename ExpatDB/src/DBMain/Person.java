@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package DBMain;
-
+import  java.util.Comparator;
 /**
  *
  * @author James Agbotta
  */
-public class Person implements XMLStringInterface{
+public class Person implements XMLStringInterface, Comparable<Person>{
         private String title;
 	private String firstName;
 	private String middleName;
@@ -163,4 +163,19 @@ public class Person implements XMLStringInterface{
         return temp;
         }
         
+        public static Comparator<Person> compareLastName = new Comparator<Person>(){       
+        public int compare(Person one, Person two){
+            String lastNameOne = one.getLastName();
+            String lastNameTwo = two.getLastName();
+            return lastNameOne.compareTo(lastNameTwo);
+        }
+    };
+
+    @Override
+    public int compareTo(Person t) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String personID = t.getPassport().getPassportNumber();
+        return this.getPassport().getPassportNumber().compareTo(personID);
+    }
 }
