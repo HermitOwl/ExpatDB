@@ -7,7 +7,8 @@ package DBMain;
 import java.util.ArrayList;
 import java.io.*;
 /**
- *
+ *Input Output class for handling file and event based IO
+ * 
  * @author James Agbotta
  */
 public class InOut {
