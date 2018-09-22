@@ -5,6 +5,7 @@
  */
 package DBMain;
 import java.util.ArrayList;
+import  java.util.Comparator;
 
 
 /**
@@ -124,12 +125,63 @@ public class SearchSystem {
         return currentList;
     }
     
-    public Person getPersonByPassportNumber(){
-    return null;
+    //search by passport number.
+    public ArrayList<Person> getPersonByPassportNumber(String passportNumber){
+        clearCurrentList();
+        Passport tempPassport;
+        if(!loadedList.isEmpty()){
+            for(int i = 0; i<loadedList.size(); i++){
+                tempPassport = loadedList.get(i).getPassport();
+                if(tempPassport.getPassportNumber().contains(passportNumber)){
+                    currentList.add(loadedList.get(i));
+                }
+            }
+        }
+    return currentList;
     }
     
+     //Returns all persons of specific profession
+    public ArrayList<Person> getListByProfession(String profession){
+        clearCurrentList();
+        Person tempPerson;
+        if(!loadedList.isEmpty()){
+            for(int i =0; i < loadedList.size(); i++){
+                tempPerson = loadedList.get(i);
+                if(tempPerson.getProfession().contains(profession.trim())){
+                    currentList.add(tempPerson);
+                }
+            }
+        }
+        return currentList;
+    }
+    
+    public ArrayList<Person> getListByMaritalStatus(int status){
+         clearCurrentList();
+        Person tempPerson;
+        if(!loadedList.isEmpty()){
+            for(int i =0; i < loadedList.size(); i++){
+                tempPerson = loadedList.get(i);
+                if(tempPerson.getMaritalStatus() == status) {
+                    currentList.add(tempPerson);
+                }
+            }
+        }
+        return currentList;
+    }
+    
+
     
     public void clearCurrentList(){
         currentList = new ArrayList<>();
+    }
+    
+    //adding sorting algorithms
+   
+   
+        public ArrayList<Person> sortByLastName(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(new Person().compareLastName);
+        return currentList;
     }
 }

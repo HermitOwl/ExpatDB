@@ -143,14 +143,23 @@ public class Person implements XMLStringInterface, Comparable<Person>{
        
         public String toString(){
         //TODO: Placeholder. remove when complete 
-            String temp ="";
+           String temp = title +"\n" + firstName+"\n";
+            temp = temp + "<middleName>"+middleName+"</middleName>\n";
+            temp = temp + "<lastName>"+lastName+"</lastName>\n";
+            temp = temp + "<age>"+age+"</age>\n";
+            temp = temp + "<gender>"+this.getGender()+"</gender>\n";
+            temp = temp + this.address.toXMLString();
+            temp = temp + "<telephone>"+telephone+"</telephone>\n";
+            temp = temp + this.passport.toXMLString();
+            temp = temp + "<email>"+email +"</email>\n";
+            temp = temp + "<profession>"+profession+"</profession>\n";
+            temp = temp + "</Person>\n";
         
         return temp;
         }
         
         @Override
         public String toXMLString(){
-        //TODO: Placeholder. remove when complete 
             String temp = "<Person>\n";
             temp = temp + "<title>"+title+"</title>\n";
             temp = temp + "<firstName>"+firstName+"</firstName>\n";
@@ -168,10 +177,20 @@ public class Person implements XMLStringInterface, Comparable<Person>{
         }
         
         public static Comparator<Person> compareLastName = new Comparator<Person>(){       
+        @Override
         public int compare(Person one, Person two){
             String lastNameOne = one.getLastName();
             String lastNameTwo = two.getLastName();
             return lastNameOne.compareTo(lastNameTwo);
+        }
+    };
+        
+        public static Comparator<Person> compareFirstName = new Comparator<Person>(){       
+        @Override
+        public int compare(Person one, Person two){
+            String firstNameOne = one.getFirstName();
+            String firstNameTwo = two.getFirstName();
+            return firstNameOne.compareTo(firstNameTwo);
         }
     };
 
