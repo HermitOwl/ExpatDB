@@ -43,6 +43,14 @@ public class Telephone implements XMLStringInterface{
     public void setNumberType(int numberType){
         this.numberType = numberType;
     }
+    
+    @Override
+    public String toString(){
+     String temp = "Phone Number: " +phoneNumber+ "\n";
+      temp = temp + "Phone Type: " + numberType + "\n";
+      return temp;
+        
+    }
 
     @Override
     public String toXMLString() {

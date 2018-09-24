@@ -67,6 +67,12 @@ public class Address implements XMLStringInterface{
         }
         
         @Override
+        public String toString(){
+        String temp =  "Address: \n" + houseNumber + " " + houseName + "\n " + streetName + "\n" + townCity + "\n" + postCode;
+            return temp;
+        }
+        
+        @Override
         public String toXMLString(){
         String temp = "<address>\n";
         temp = temp + "<houseNumber>"+houseNumber+"</houseNumber>\n";

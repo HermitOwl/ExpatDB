@@ -148,17 +148,14 @@ public class Person implements XMLStringInterface, Comparable<Person> {
 
     public String toString() {
         //TODO: Placeholder. remove when complete 
-        String temp = title + "\n" + firstName + "\n";
-        temp = temp + "<middleName>" + middleName + "</middleName>\n";
-        temp = temp + "<lastName>" + lastName + "</lastName>\n";
-        temp = temp + "<age>" + age + "</age>\n";
-        temp = temp + "<gender>" + this.getGender() + "</gender>\n";
-        temp = temp + this.address.toXMLString();
-        temp = temp + "<telephone>" + telephone + "</telephone>\n";
-        temp = temp + this.passport.toXMLString();
-        temp = temp + "<email>" + email + "</email>\n";
-        temp = temp + "<profession>" + profession + "</profession>\n";
-        temp = temp + "</Person>\n";
+        String temp = title + " " + firstName + " "+  middleName + "" + lastName + "\n";
+        temp = temp + "age: " + age + "\n";
+        temp = temp + "gender: " + this.getGender() + "\n";
+        temp = temp + this.address.toString();
+        temp = temp + "telephone: " + telephone.toString() + "\n";
+        temp = temp + this.passport.toString();
+        temp = temp + "email: " + email + "\n";
+        temp = temp + "profession: " + profession + "\n";
 
         return temp;
     }
@@ -173,7 +170,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         temp = temp + "<age>" + age + "</age>\n";
         temp = temp + "<gender>" + this.getGender() + "</gender>\n";
         temp = temp + this.address.toXMLString();
-        temp = temp + "<telephone>" + telephone + "</telephone>\n";
+        temp = temp + "<telephone>" + telephone.toXMLString() + "</telephone>\n";
         temp = temp + this.passport.toXMLString();
         temp = temp + "<email>" + email + "</email>\n";
         temp = temp + "<profession>" + profession + "</profession>\n";
