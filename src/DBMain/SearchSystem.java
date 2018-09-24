@@ -181,7 +181,47 @@ public class SearchSystem {
         public ArrayList<Person> sortByLastName(ArrayList<Person> unsortedList)
     {
         currentList = unsortedList;
-        currentList.sort(new Person().compareLastName);
+        currentList.sort(Person.compareLastName);
         return currentList;
     }
+        
+            public ArrayList<Person> sortByFirstName(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareFirstName);
+        return currentList;
+    }
+                public ArrayList<Person> sortByAge(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareAge);
+        return currentList;
+    }
+        public ArrayList<Person> sortByTelephoneNo(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareTelephoneNo);
+        return currentList;
+    }
+    public ArrayList<Person> sortByEmail(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareEmail);
+        return currentList;
+    }
+    
+     public ArrayList<Person> sortByPasportNo(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareAge);
+        return currentList;
+    }
+     
+       public ArrayList<Person> sortByProfession(ArrayList<Person> unsortedList)
+    {
+        currentList = unsortedList;
+        currentList.sort(Person.compareProfession);
+        return currentList;
+    }
+        
 }
