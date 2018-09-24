@@ -193,6 +193,23 @@ public class Person implements XMLStringInterface, Comparable<Person>{
             return firstNameOne.compareTo(firstNameTwo);
         }
     };
+        public static Comparator<Person> compareAge = new Comparator<Person>(){       
+        @Override
+        public int compare(Person one, Person two){
+            Integer ageOne = one.getAge();
+            Integer ageTwo =  two.getAge();
+            return ageOne.compareTo(ageTwo);
+        }
+    };
+            
+        public static Comparator<Person> compareTeleponeNo = new Comparator<Person>(){       
+        @Override
+        public int compare(Person one, Person two){
+            String numOne = one.getTelephone().getPhoneNumber();
+            String numTwo =  two.getTelephone().getPhoneNumber();
+            return numOne.compareTo(numTwo);
+        }
+    };
 
     @Override
     public int compareTo(Person t) {
