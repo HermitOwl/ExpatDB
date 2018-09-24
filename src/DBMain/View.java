@@ -5,6 +5,10 @@
  */
 package DBMain;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jasex
@@ -46,6 +50,7 @@ public class View extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
+        openDBItem = new javax.swing.JMenuItem();
         addEntryItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -135,6 +140,14 @@ public class View extends javax.swing.JFrame {
         fileMenu.setText("File");
         fileMenu.setToolTipText("");
 
+        openDBItem.setText("Open Database");
+        openDBItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openDBItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(openDBItem);
+
         addEntryItem.setText("Add Entry");
         addEntryItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +203,12 @@ public class View extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void openDBItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDBItemActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        File file = jfc.getSelectedFile();
+        JOptionPane.showMessageDialog(jMenu1, file.getPath());
+    }//GEN-LAST:event_openDBItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +268,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JMenuItem openDBItem;
     private javax.swing.JMenu searchMenu;
     private javax.swing.JMenu sortMenu;
     private javax.swing.JScrollPane viewPane;

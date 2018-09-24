@@ -5,6 +5,7 @@
  */
 package DBMain;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
 /**
  *
  * @author James Agbotta
@@ -17,7 +18,8 @@ public class ExpatDB {
     public static void main(String[] args) {
         // TODO code application logic here
         ArrayList<Person> persons = new ArrayList<Person>();
-        InOut reader = new InOut();
+        JFileChooser jfc = new JFileChooser();
+        InOut reader = new InOut(jfc.getSelectedFile().getPath());
         System.out.println("Working!");
         
         

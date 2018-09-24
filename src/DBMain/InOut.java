@@ -7,6 +7,7 @@ package DBMain;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+import javax.swing.JOptionPane;
 /**
  *Input Output class for handling file and event based IO
  * 
@@ -14,6 +15,31 @@ import java.io.*;
  */
 public class InOut {
     private ArrayList<Person> persons;
-    private String fileName;
+    private ArrayList<String> tokens;
+    private String filePath;
+    private File file;
+    private Scanner input;
     //"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    
+    public InOut(String filePath){
+        try{
+        this.filePath = filePath;
+        persons = new ArrayList<Person>();
+        tokens = new ArrayList<String>();
+        file = new File(this.filePath);
+        
+        input = new Scanner(file);
+        String temp = "";
+        while(input.hasNextLine()){
+         temp = input.nextLine();
+            tokens.add(temp);
+            System.out.println(temp);
+        }
+        input.close();
+        
+        }
+        catch (FileNotFoundException e){
+            JOptionPane.showMessageDialog(null, "Error", e.getMessage(), JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 }
