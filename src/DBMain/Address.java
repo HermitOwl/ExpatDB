@@ -10,31 +10,27 @@ package DBMain;
  * @author James Agbotta
  */
 public class Address implements XMLStringInterface{
-    private int houseNumber;
 	private String houseName;
 	private String streetName;
 	private String postCode;
 	private String townCity;
         
         public Address(){
-        houseNumber =0;
+
         houseName ="";
         streetName="";
         postCode = "";
         townCity= "";
         }
         
-        public Address(int houseNumber, String houseName,String streetName,String postCode,String townCity ){
-            this.houseNumber =houseNumber;
+        public Address(String houseName,String streetName,String postCode,String townCity ){
             this.houseName = houseName;
             this.streetName = streetName;
             this.postCode = postCode;
             this.townCity = townCity;
         }
         
-        public int getHouseNumber(){
-            return  houseNumber;
-        }
+
         public String getHouseName(){
             return  houseName;
         }
@@ -49,9 +45,6 @@ public class Address implements XMLStringInterface{
             return  townCity;
         }
         
-        public void setHouseNumber(int houseNumber){
-            this.houseNumber =houseNumber;
-        }
         public void setHouseName(String houseName){
             this.houseName = houseName;
         }
@@ -68,14 +61,13 @@ public class Address implements XMLStringInterface{
         
         @Override
         public String toString(){
-        String temp =  "Address: \n" + houseNumber + " " + houseName + "\n " + streetName + "\n" + townCity + "\n" + postCode;
+        String temp =  "Address: \n"  + houseName + "\n " + streetName + "\n" + townCity + "\n" + postCode;
             return temp;
         }
         
         @Override
         public String toXMLString(){
         String temp = "<address>\n";
-        temp = temp + "<houseNumber>"+houseNumber+"</houseNumber>\n";
         temp = temp + "<houseName>"+houseName+"</houseName>\n";
         temp = temp + "<streetName>"+streetName+"</streetName>\n";
         temp = temp + "<postCode>"+postCode+"</postCode>\n";
