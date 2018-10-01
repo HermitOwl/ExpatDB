@@ -109,6 +109,10 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+    
+    public void setMiddleName(String middleName){
+        this.middleName = middleName;
+    }
 
     public void setLastName(String lastname) {
         this.lastName = lastName;
