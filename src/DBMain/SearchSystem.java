@@ -81,13 +81,13 @@ public class SearchSystem {
     }
     
      //Returns all persons of specific age
-    public ArrayList<Person> getListByAge(int age){
+    public ArrayList<Person> getListByAge(String date){
         clearCurrentList();
         Person tempPerson;
         if(!loadedList.isEmpty()){
             for(int i =0; i < loadedList.size(); i++){
                 tempPerson = loadedList.get(i);
-                if(tempPerson.getDate()== age){
+                if(tempPerson.getDate()== date){
                     currentList.add(tempPerson);
                 }
             }

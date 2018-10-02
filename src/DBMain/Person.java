@@ -17,7 +17,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     private String firstName;
     private String middleName;
     private String lastName;
-    private int date;
+    private String date;
     private boolean gender;
     private Address address;
     private Telephone telephone;
@@ -32,7 +32,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         firstName = "";
         middleName = "";
         lastName = "";
-        date = 0;
+        date = "";
         gender = false;
         address = new Address();
         telephone = new Telephone();
@@ -58,7 +58,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         return lastName;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -118,7 +118,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         this.lastName = lastName;
     }
 
-    public void setDate(int age) {
+    public void setDate(String age) {
         this.date = age;
     }
 
@@ -149,6 +149,10 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     public void setMaritalStatus(int maritalStatus) {
         this.maritalStatus = maritalStatus;
     }
+    
+    public String getIDString(){
+    return passport.getPassportNumber() + "- " + lastName+", "+ firstName;
+     }
 
     public String toString() {
         //TODO: Placeholder. remove when complete 
@@ -206,8 +210,8 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     public static Comparator<Person> compareAge = new Comparator<Person>() {
         @Override
         public int compare(Person one, Person two) {
-            Integer ageOne = one.getDate();
-            Integer ageTwo = two.getDate();
+            String ageOne = one.getDate();
+            String ageTwo = two.getDate();
             return ageOne.compareTo(ageTwo);
         }
     };
