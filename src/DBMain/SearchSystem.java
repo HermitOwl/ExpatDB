@@ -87,7 +87,7 @@ public class SearchSystem {
         if(!loadedList.isEmpty()){
             for(int i =0; i < loadedList.size(); i++){
                 tempPerson = loadedList.get(i);
-                if(tempPerson.getAge()== age){
+                if(tempPerson.getDate()== age){
                     currentList.add(tempPerson);
                 }
             }
