@@ -53,7 +53,8 @@ public class View extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         genderRadioGroup = new javax.swing.ButtonGroup();
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        sortRadioButton = new javax.swing.ButtonGroup();
+        editGenderButtonGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jSplitPane2 = new javax.swing.JSplitPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -90,8 +91,8 @@ public class View extends javax.swing.JFrame {
         placeOfIssueLabel = new javax.swing.JLabel();
         placeOFIssueField = new javax.swing.JTextField();
         dateOfIssueLabel = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        doExpiryLabel = new javax.swing.JLabel();
+        addClearButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         doIssueField = new javax.swing.JFormattedTextField();
         doExpiryField = new javax.swing.JFormattedTextField();
@@ -127,7 +128,7 @@ public class View extends javax.swing.JFrame {
         passportNumberField1 = new javax.swing.JTextField();
         placeOfIssueLabel1 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        editDoIssueLabel = new javax.swing.JLabel();
         editDoExpiryLabel = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -139,37 +140,37 @@ public class View extends javax.swing.JFrame {
         editProfessionLabel = new javax.swing.JLabel();
         searchScrollPane = new javax.swing.JScrollPane();
         searchPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        searchLabel1 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        searchField1 = new javax.swing.JTextField();
+        searchCombo1 = new javax.swing.JComboBox<>();
+        searchLabel2 = new javax.swing.JLabel();
+        searchField2 = new javax.swing.JTextField();
+        searchCombo2 = new javax.swing.JComboBox<>();
+        searchLabel3 = new javax.swing.JLabel();
+        searchField3 = new javax.swing.JTextField();
+        searchCombo3 = new javax.swing.JComboBox<>();
+        searchLabel4 = new javax.swing.JLabel();
+        searchField4 = new javax.swing.JTextField();
+        searchCombo4 = new javax.swing.JComboBox<>();
+        searchButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         sortScrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        sortLabel = new javax.swing.JLabel();
+        sortCombo = new javax.swing.JComboBox<>();
+        ascendRadioButton = new javax.swing.JRadioButton();
+        descendRadioButton = new javax.swing.JRadioButton();
+        entryInformation = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        fileMenu = new javax.swing.JMenu();
+        openMenuItem = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        closeMenuItem = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -250,9 +251,9 @@ public class View extends javax.swing.JFrame {
 
         dateOfIssueLabel.setText("Date of Issue");
 
-        jLabel12.setText("Date of Expiry");
+        doExpiryLabel.setText("Date of Expiry");
 
-        jButton1.setText("Delete");
+        addClearButton.setText("Clear");
 
         jButton2.setText("Save");
 
@@ -329,7 +330,7 @@ public class View extends javax.swing.JFrame {
                         .addGroup(addEntryPanelLayout.createSequentialGroup()
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(263, 263, 263)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(addEntryPanelLayout.createSequentialGroup()
                             .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(addEntryPanelLayout.createSequentialGroup()
@@ -346,7 +347,7 @@ public class View extends javax.swing.JFrame {
                                     .addComponent(passportNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(42, 42, 42)
                             .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel12)
+                                .addComponent(doExpiryLabel)
                                 .addComponent(dateOfIssueLabel))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -411,7 +412,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(placeOfIssueLabel)
                     .addComponent(placeOFIssueField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
+                    .addComponent(doExpiryLabel)
                     .addComponent(doExpiryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -420,7 +421,7 @@ public class View extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(addEntryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(addClearButton))
                 .addGap(0, 92, Short.MAX_VALUE))
         );
 
@@ -440,10 +441,10 @@ public class View extends javax.swing.JFrame {
 
         editDOBField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
-        genderRadioGroup.add(editMaleRadioButton1);
+        editGenderButtonGroup.add(editMaleRadioButton1);
         editMaleRadioButton1.setText("Male");
 
-        genderRadioGroup.add(editFemaleRadioButton1);
+        editGenderButtonGroup.add(editFemaleRadioButton1);
         editFemaleRadioButton1.setText("Female");
 
         addressLabel1.setText("Address");
@@ -468,7 +469,7 @@ public class View extends javax.swing.JFrame {
 
         placeOfIssueLabel1.setText("Place of Issue");
 
-        jLabel13.setText("Date of Issue");
+        editDoIssueLabel.setText("Date of Issue");
 
         editDoExpiryLabel.setText("Date of Expiry");
 
@@ -567,7 +568,7 @@ public class View extends javax.swing.JFrame {
                             .addGap(42, 42, 42)
                             .addGroup(editEntryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(editDoExpiryLabel)
-                                .addComponent(jLabel13))
+                                .addComponent(editDoIssueLabel))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(editEntryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(doExpiryField3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
@@ -627,7 +628,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(editEntryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passportNumberLabel1)
                     .addComponent(passportNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
+                    .addComponent(editDoIssueLabel)
                     .addComponent(dobField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(editEntryPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -650,25 +651,25 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Edit", editEntryScrollPane1);
 
-        jLabel2.setText("Search 1");
+        searchLabel1.setText("Search 1");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchCombo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Gender", "Profession", "Marital Status" }));
 
-        jLabel3.setText("Search 2");
+        searchLabel2.setText("Search 2");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Gender", "Profession", "Marital Status" }));
 
-        jLabel4.setText("Search 3");
+        searchLabel3.setText("Search 3");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchCombo3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Gender", "Profession", "Marital Status" }));
 
-        jLabel5.setText("Search 4");
+        searchLabel4.setText("Search 4");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchCombo4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Gender", "Profession", "Marital Status" }));
 
-        jButton5.setText("Search");
+        searchButton.setText("Search");
 
-        jButton6.setText("Clear");
+        clearButton.setText("Clear");
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -678,22 +679,22 @@ public class View extends javax.swing.JFrame {
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(searchPanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchField1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(searchCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(searchPanelLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(searchLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(searchLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(searchLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(58, 58, 58))
@@ -701,23 +702,23 @@ public class View extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(searchPanelLayout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(searchField2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(67, 67, 67)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(searchCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(searchPanelLayout.createSequentialGroup()
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(searchField3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(67, 67, 67)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(searchCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(searchPanelLayout.createSequentialGroup()
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(searchField4, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(67, 67, 67)
-                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(searchCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(searchPanelLayout.createSequentialGroup()
-                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(searchLabel2)
                                 .addGap(18, 18, 18)
                                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -728,39 +729,39 @@ public class View extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(searchLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+                    .addComponent(searchLabel2)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
+                    .addComponent(searchLabel3)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
+                    .addComponent(searchLabel4)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchCombo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(searchButton)
+                    .addComponent(clearButton))
                 .addGap(0, 278, Short.MAX_VALUE))
         );
 
@@ -768,15 +769,15 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Search", searchScrollPane);
 
-        jLabel6.setText("Sort By");
+        sortLabel.setText("Sort By");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sortCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Profession" }));
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Ascending");
+        sortRadioButton.add(ascendRadioButton);
+        ascendRadioButton.setText("Ascending");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Descending");
+        sortRadioButton.add(descendRadioButton);
+        descendRadioButton.setText("Descending");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -784,13 +785,13 @@ public class View extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel6)
+                .addComponent(sortLabel)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sortCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(ascendRadioButton)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(descendRadioButton)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -799,11 +800,11 @@ public class View extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1)
-                        .addComponent(jRadioButton2))
+                        .addComponent(ascendRadioButton)
+                        .addComponent(descendRadioButton))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sortLabel)
+                        .addComponent(sortCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(574, Short.MAX_VALUE))
         );
 
@@ -813,14 +814,14 @@ public class View extends javax.swing.JFrame {
 
         jSplitPane2.setRightComponent(jTabbedPane1);
 
-        jLabel1.setText(entries + " entries");
+        entryInformation.setText(entries +" entries");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(entryInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -833,23 +834,28 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jSplitPane2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                    .addComponent(entryInformation)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jMenu6.setText("File");
+        fileMenu.setText("File");
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu6.add(jMenuItem2);
+        openMenuItem.setText("Open ");
+        fileMenu.add(openMenuItem);
 
         jMenuItem3.setText("jMenuItem3");
-        jMenu6.add(jMenuItem3);
+        fileMenu.add(jMenuItem3);
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu6.add(jMenuItem4);
+        closeMenuItem.setText("Close");
+        closeMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(closeMenuItem);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(fileMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -884,6 +890,11 @@ public class View extends javax.swing.JFrame {
     private void townCityField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_townCityField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_townCityField1ActionPerformed
+
+    private void closeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeMenuItemActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_closeMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -928,14 +939,19 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addClearButton;
     private javax.swing.JPanel addEntryPanel;
     private javax.swing.JScrollPane addEntryScrollPane;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressLabel1;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton ascendRadioButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JMenuItem closeMenuItem;
     private javax.swing.JLabel dateOfIssueLabel;
+    private javax.swing.JRadioButton descendRadioButton;
     private javax.swing.JFormattedTextField doExpiryField;
     private javax.swing.JFormattedTextField doExpiryField3;
+    private javax.swing.JLabel doExpiryLabel;
     private javax.swing.JFormattedTextField doIssueField;
     private javax.swing.JFormattedTextField dobField;
     private javax.swing.JFormattedTextField dobField2;
@@ -943,10 +959,12 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel dobLabel1;
     private javax.swing.JFormattedTextField editDOBField1;
     private javax.swing.JLabel editDoExpiryLabel;
+    private javax.swing.JLabel editDoIssueLabel;
     private javax.swing.JPanel editEntryPanel1;
     private javax.swing.JScrollPane editEntryScrollPane1;
     private javax.swing.JRadioButton editFemaleRadioButton1;
     private javax.swing.JTextField editFirstNameField1;
+    private javax.swing.ButtonGroup editGenderButtonGroup;
     private javax.swing.JTextField editLastNameField1;
     private javax.swing.JRadioButton editMaleRadioButton1;
     private javax.swing.JLabel editMaritalStatusLabel;
@@ -954,48 +972,29 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField editProfessionField;
     private javax.swing.JLabel editProfessionLabel;
     private javax.swing.JTextField editTitleTextField;
+    private javax.swing.JLabel entryInformation;
     private javax.swing.JTextArea entryViewArea;
     private javax.swing.JRadioButton femaleRadioButton;
+    private javax.swing.JMenu fileMenu;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel firstNameLabel1;
     private javax.swing.ButtonGroup genderRadioGroup;
     private javax.swing.JTextField houseNumerField;
     private javax.swing.JTextField houseNumerField1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -1008,11 +1007,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JLabel lastNameLabel1;
@@ -1023,6 +1018,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField middleNameField;
     private javax.swing.JLabel middleNameLabel;
     private javax.swing.JLabel middleNameLabel1;
+    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JTextField passportNumberField;
     private javax.swing.JTextField passportNumberField1;
     private javax.swing.JLabel passportNumberLabel;
@@ -1038,8 +1034,24 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField postCodeField1;
     private javax.swing.JTextField professionField;
     private javax.swing.JLabel professionLabel;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JComboBox<String> searchCombo1;
+    private javax.swing.JComboBox<String> searchCombo2;
+    private javax.swing.JComboBox<String> searchCombo3;
+    private javax.swing.JComboBox<String> searchCombo4;
+    private javax.swing.JTextField searchField1;
+    private javax.swing.JTextField searchField2;
+    private javax.swing.JTextField searchField3;
+    private javax.swing.JTextField searchField4;
+    private javax.swing.JLabel searchLabel1;
+    private javax.swing.JLabel searchLabel2;
+    private javax.swing.JLabel searchLabel3;
+    private javax.swing.JLabel searchLabel4;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JScrollPane searchScrollPane;
+    private javax.swing.JComboBox<String> sortCombo;
+    private javax.swing.JLabel sortLabel;
+    private javax.swing.ButtonGroup sortRadioButton;
     private javax.swing.JScrollPane sortScrollPane;
     private javax.swing.JTextField streetNameField;
     private javax.swing.JTextField streetNameField1;
