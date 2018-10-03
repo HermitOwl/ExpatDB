@@ -22,6 +22,7 @@ public class View extends javax.swing.JFrame {
     private InOut io;
     private DefaultListModel listModel;
     private ArrayList<Person> persons;
+    private Person selectedPerson;
     private int entries;
     
 
@@ -33,6 +34,7 @@ public class View extends javax.swing.JFrame {
         persons = new ArrayList<Person>();
         searches = new SearchSystem[4];
         searches[1] = new SearchSystem(persons);
+        selectedPerson = new Person();
         
         initComponents();
     }
@@ -169,7 +171,7 @@ public class View extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
         closeMenuItem = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
@@ -841,12 +843,20 @@ public class View extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         openMenuItem.setText("Open ");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
-        jMenuItem3.setText("jMenuItem3");
-        fileMenu.add(jMenuItem3);
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem.setText("Save");
+        fileMenu.add(saveMenuItem);
 
+        closeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         closeMenuItem.setText("Close");
         closeMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -895,6 +905,14 @@ public class View extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        javax.swing.JFileChooser filechooser = new JFileChooser();
+        filechooser.showOpenDialog(jMenu1);
+        io = new InOut(filechooser.getSelectedFile());
+        jProgressBar1.setValue(10);// number should be from 0-100
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -990,7 +1008,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
@@ -1034,6 +1051,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField postCodeField1;
     private javax.swing.JTextField professionField;
     private javax.swing.JLabel professionLabel;
+    private javax.swing.JMenuItem saveMenuItem;
     private javax.swing.JButton searchButton;
     private javax.swing.JComboBox<String> searchCombo1;
     private javax.swing.JComboBox<String> searchCombo2;

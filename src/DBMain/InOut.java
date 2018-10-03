@@ -21,12 +21,12 @@ public class InOut {
     private Scanner input;
     //"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     
-    public InOut(String filePath){
+    public InOut(File file){
         try{
-        this.filePath = filePath;
+        this.filePath = file.getPath();
         persons = new ArrayList<Person>();
         tokens = new ArrayList<String>();
-        file = new File(this.filePath);
+        this.file = file;
         
         input = new Scanner(file);
         String temp = "";

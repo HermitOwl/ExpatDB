@@ -19,7 +19,7 @@ public class ExpatDB {
         // TODO code application logic here
         ArrayList<Person> persons = new ArrayList<Person>();
         JFileChooser jfc = new JFileChooser();
-        InOut reader = new InOut(jfc.getSelectedFile().getPath());
+    //    InOut reader = new InOut(jfc.getSelectedFile().getPath());
         System.out.println("Working!");
         
         
