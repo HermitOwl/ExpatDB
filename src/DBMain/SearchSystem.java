@@ -203,12 +203,7 @@ public class SearchSystem {
         currentList.sort(Person.compareTelephoneNo);
         return currentList;
     }
-    public ArrayList<Person> sortByEmail(ArrayList<Person> unsortedList)
-    {
-        currentList = unsortedList;
-        currentList.sort(Person.compareEmail);
-        return currentList;
-    }
+
     
      public ArrayList<Person> sortByPasportNo(ArrayList<Person> unsortedList)
     {

@@ -11,23 +11,20 @@ import java.util.Date;
  */
 public class Passport implements XMLStringInterface{
     private String passportNumber;
-    private String currentNationality;
     private String placeOfIssue;
-    private Date dateOfIssue;
-    private Date dateOfExpiry;
+    private String dateOfIssue;
+    private String dateOfExpiry;
 
         
     public Passport(){
     passportNumber ="";
-    currentNationality= "";
     placeOfIssue = "";
-    dateOfIssue = new Date();
-    dateOfExpiry = new Date();
+    dateOfIssue = "";
+    dateOfExpiry = "";
     }
     
-    public Passport(String passportNumber, String currentNationality, String placeOfIssue, Date dateOfIssue, Date dateOfExpiry){
+    public Passport(String passportNumber, String placeOfIssue, String dateOfIssue, String dateOfExpiry){
     this.passportNumber = passportNumber;
-    this.currentNationality= currentNationality;
     this.placeOfIssue = placeOfIssue;
     this.dateOfIssue = dateOfIssue;
     this.dateOfExpiry = dateOfExpiry;
@@ -37,19 +34,17 @@ public class Passport implements XMLStringInterface{
     return passportNumber;
     }
     
-    public String getCurrentNationalityNumber(){
-    return currentNationality;
-    }
+
     
     public String getPlaceOfIssue(){
         return placeOfIssue;
     }
     
-    public Date getDateOfIssue(){
+    public String getDateOfIssue(){
         return dateOfIssue;
     }
     
-    public Date getDateOfExpiry(){
+    public String getDateOfExpiry(){
         return dateOfExpiry;
     }
 
@@ -58,24 +53,20 @@ public class Passport implements XMLStringInterface{
         this.passportNumber = passportNumber;
     }
     
-    public void setCurrentNumber(String currentNationality){
-        this.currentNationality= currentNationality;
-    }
     
     public void setPlaceOfIssue(String placeOfIssue){
         this.placeOfIssue = placeOfIssue;
     }
-    public void setDateOfIssue( Date dateOfIssue){
+    public void setDateOfIssue( String dateOfIssue){
         this.dateOfIssue = dateOfIssue;
     }
     
-   public void setDateOfExpiry( Date dateOfExpiry){
+   public void setDateOfExpiry( String dateOfExpiry){
         this.dateOfExpiry = dateOfExpiry;
     }
    @Override
     public String toString() {
         String temp ="Passport Number: "+passportNumber+"\n";
-        temp = temp + "Current Nationality: "+currentNationality+"\n";
         temp = temp + "Place Of Issue: "+placeOfIssue+"\n";
         temp = temp + "Date Of Issue:"+dateOfIssue+"\n";
         temp = temp + "Date Of Expiry: "+dateOfExpiry+"\n";
@@ -86,7 +77,6 @@ public class Passport implements XMLStringInterface{
     public String toXMLString() {
         String temp ="<passport>\n";
         temp = temp + "<passportNumber>"+passportNumber+"</passportNumber>\n";
-        temp = temp + "<currentNationality>"+currentNationality+"</currentNationality>\n";
         temp = temp + "<placeOfIssue>"+placeOfIssue+"</placeOfIssue>\n";
         temp = temp + "<dateOfIssue>"+dateOfIssue+"</dateOfIssue>\n";
         temp = temp + "<dateOfExpiry>"+dateOfExpiry+"</dateOfExpiry>\n";

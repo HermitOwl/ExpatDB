@@ -22,7 +22,6 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     private Address address;
     private Telephone telephone;
     private Passport passport;
-    private String email;
     private String profession;
     private static String[] maritalStatusList = {"N/a","SINGLE", "MARRIED", "DIVORCED", "WIDOWED"};
     private int maritalStatus;
@@ -37,7 +36,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         address = new Address();
         telephone = new Telephone();
         passport = new Passport();
-        email = "";
+
         profession = "";
         maritalStatus = 0;
     }
@@ -86,9 +85,6 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         return passport;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
     public String getProfession() {
         return profession;
@@ -138,9 +134,6 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         this.passport = passport;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setProfession(String profession) {
         this.profession = profession;
@@ -160,10 +153,9 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         temp = temp + "age: " + date + "\n";
         temp = temp + "gender: " + this.getGender() + "\n";
         temp = temp + this.address.toString();
-        temp = temp + "telephone: " + telephone.toString() + "\n";
+        temp = temp + "Telephone:\n" + telephone.toString() + "\n";
         temp = temp + this.passport.toString();
-        temp = temp + "email: " + email + "\n";
-        temp = temp + "profession: " + profession + "\n";
+        temp = temp + "profession: " + profession + "\n\n";
 
         return temp;
     }
@@ -177,10 +169,10 @@ public class Person implements XMLStringInterface, Comparable<Person> {
         temp = temp + "<lastName>" + lastName + "</lastName>\n";
         temp = temp + "<age>" + date + "</age>\n";
         temp = temp + "<gender>" + this.getGender() + "</gender>\n";
+        temp = temp + "<maritalStatus>" +this.getMaritalStatus()+ "</maritalStatus>\n";
         temp = temp + this.address.toXMLString();
-        temp = temp + "<telephone>" + telephone.toXMLString() + "</telephone>\n";
+        temp = temp + telephone.toXMLString() + " \n";
         temp = temp + this.passport.toXMLString();
-        temp = temp + "<email>" + email + "</email>\n";
         temp = temp + "<profession>" + profession + "</profession>\n";
         temp = temp + "</Person>\n";
         return temp;
@@ -224,16 +216,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
             return numOne.compareTo(numTwo);
         }
     };
-    
-    public static Comparator<Person> compareEmail = new Comparator<Person>() {
-        @Override
-        public int compare(Person one, Person two) {
-            String emailOne = one.getEmail();
-            String emailTwo = two.getEmail();
-            return emailOne.compareTo(emailTwo);
-        }
-    };
-    
+
     public static Comparator<Person> comparePassportNo = new Comparator<Person>() {
          @Override
         public int compare(Person one, Person two) {

@@ -36,6 +36,10 @@ public class Telephone implements XMLStringInterface{
     return temp;
     }
     
+    public int getRawPhoneNumberType(){
+    return numberType;
+    }
+    
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber =phoneNumber;
     }
@@ -47,7 +51,7 @@ public class Telephone implements XMLStringInterface{
     @Override
     public String toString(){
      String temp = "Phone Number: " +phoneNumber+ "\n";
-      temp = temp + "Phone Type: " + numberType + "\n";
+      temp = temp + "Phone Type: " + this.getPhoneNumberType() + "\n";
       return temp;
         
     }
