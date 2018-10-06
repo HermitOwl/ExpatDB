@@ -1001,23 +1001,7 @@ public class View extends javax.swing.JFrame {
                         }
                         break;
                     }
-                    doesThis = io.getFile();
-                    if (doesThis.exists() && doesThis.isFile()) {
-                        option = JOptionPane.showConfirmDialog(null, "Do you wish to over write this file?", "OverWrite?", JOptionPane.YES_NO_OPTION);
-                        if (option == JOptionPane.YES_OPTION) {
-                            io.saveFile(persons, doesThis.getPath());
-                        }
-
-                    } else {
-                        filechooser.showSaveDialog(jMenu1);
-                        doesThis = filechooser.getSelectedFile();
-                        if (doesThis.exists() && doesThis.isFile()) {
-                            option = JOptionPane.showConfirmDialog(null, "Do you wish to over write this file?", "OverWrite?", JOptionPane.YES_NO_OPTION);
-                            if (option == JOptionPane.YES_OPTION) {
-                                io.saveFile(persons, doesThis.getPath());
-                            }
-                        }
-                    }
+                    
                 }
             } catch (java.lang.NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Cannot Find File Location, Cannot save.", "Error", JOptionPane.ERROR_MESSAGE);
