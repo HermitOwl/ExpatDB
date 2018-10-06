@@ -23,7 +23,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
     private Telephone telephone;
     private Passport passport;
     private String profession;
-    private static String[] maritalStatusList = {"N/a","SINGLE", "MARRIED", "DIVORCED", "WIDOWED"};
+    public static String[] maritalStatusList = {"N/a","SINGLE", "MARRIED", "DIVORCED", "WIDOWED"};
     private int maritalStatus;
 
     public Person() {
@@ -149,7 +149,7 @@ public class Person implements XMLStringInterface, Comparable<Person> {
 
     public String toString() {
         //TODO: Placeholder. remove when complete 
-        String temp = title + " " + firstName + " "+  middleName + "" + lastName + "\n";
+        String temp = title + " " + firstName + " "+  middleName + " " + lastName + "\n";
         temp = temp + "age: " + date + "\n";
         temp = temp + "gender: " + this.getGender() + "\n";
         temp = temp + this.address.toString();

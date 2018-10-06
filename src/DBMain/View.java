@@ -22,10 +22,13 @@ public class View extends javax.swing.JFrame {
     private InOut io;
     private DefaultListModel listModel;
     private ArrayList<Person> persons;
+
     private String[] personList;
     private Person selectedPerson;
     private javax.swing.JFileChooser filechooser = new JFileChooser();
     private static String version = "1.0";
+
+    
 
     /**
      * Creates new form View
@@ -33,8 +36,9 @@ public class View extends javax.swing.JFrame {
     public View() {
         io = new InOut();
         persons = new ArrayList<Person>();
+
         searches = new SearchSystem[4];
-        searches[1] = new SearchSystem(persons);
+        searches[0] = new SearchSystem(persons);
         selectedPerson = new Person();
         personList = new String[1];
 
@@ -163,6 +167,7 @@ public class View extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        searchResearchButton = new javax.swing.JButton();
         sortScrollPane = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         sortLabel = new javax.swing.JLabel();
@@ -706,8 +711,25 @@ public class View extends javax.swing.JFrame {
         searchCombo4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Middle Name", "Last Name", "Passport Number", "Location", "Age", "Gender", "Profession", "Marital Status" }));
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
+        searchResearchButton.setText("Refresh");
+        searchResearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchResearchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -737,6 +759,10 @@ public class View extends javax.swing.JFrame {
                                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(58, 58, 58))
                             .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addComponent(searchLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(searchPanelLayout.createSequentialGroup()
@@ -754,12 +780,9 @@ public class View extends javax.swing.JFrame {
                                     .addGroup(searchPanelLayout.createSequentialGroup()
                                         .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(searchLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(searchResearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,7 +823,9 @@ public class View extends javax.swing.JFrame {
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(clearButton))
-                .addGap(0, 278, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(searchResearchButton)
+                .addGap(0, 279, Short.MAX_VALUE))
         );
 
         searchScrollPane.setViewportView(searchPanel);
@@ -1118,7 +1143,7 @@ public class View extends javax.swing.JFrame {
             } else {
                 editDOBField1.setText("" + LocalDate.parse(selectedPerson.getDate()));
             }
-            if (selectedPerson.getRawGender()) {
+            if (selectedPerson.getRawGender()==true) {
                 editMaleRadioButton1.setSelected(true);
             } else {
                 editFemaleRadioButton1.setSelected(true);
@@ -1134,10 +1159,10 @@ public class View extends javax.swing.JFrame {
             passportNumberField1.setText(selectedPerson.getPassport().getPassportNumber());
             editPlaceOfIssueField.setText(selectedPerson.getPassport().getPlaceOfIssue());
             editProfessionField.setText(selectedPerson.getProfession());
+          
             if (selectedPerson.getPassport().getDateOfIssue().equals("")) {
                 editDoIssueField.setText("");
             } else {
-
                 editDoIssueField.setText("" + LocalDate.parse(selectedPerson.getPassport().getDateOfIssue()));
             }
 
@@ -1198,6 +1223,143 @@ public class View extends javax.swing.JFrame {
         
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+
+        searchField1.setText("");
+        searchField2.setText("");
+        searchField3.setText("");
+        searchField4.setText("");
+        searchCombo1.setSelectedIndex(0);
+        searchCombo2.setSelectedIndex(0);
+        searchCombo3.setSelectedIndex(0);
+        searchCombo4.setSelectedIndex(0);
+        this.populateSubjectList();
+        
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+
+       searches[0] = new SearchSystem(persons);
+       SearchSystem search = searches[0];
+       ArrayList<Person> searchList = new ArrayList<Person>();
+       int comboIndex =0;
+       String query ="";
+       if(!searchField1.getText().trim().equals("")){
+           comboIndex = searchCombo1.getSelectedIndex();
+           query = searchField1.getText().trim();
+           searchList = this.searchCheck(query, comboIndex, search);
+           
+       }
+       jProgressBar1.setValue(25);
+       searches[1] = new SearchSystem(searchList);
+       search = searches[1];
+        if(!searchField2.getText().trim().equals("")){
+           comboIndex = searchCombo2.getSelectedIndex();
+           query = searchField2.getText().trim();
+           searchList = this.searchCheck(query, comboIndex, search);
+           
+       }
+        jProgressBar1.setValue(50);
+        searches[2] = new SearchSystem(searchList);
+       search = searches[2];
+         if(!searchField3.getText().trim().equals("")){
+           comboIndex = searchCombo3.getSelectedIndex();
+           query = searchField3.getText().trim();
+           searchList = this.searchCheck(query, comboIndex, search);
+           
+       }
+         jProgressBar1.setValue(75);
+         searches[3] = new SearchSystem(searchList);
+       search = searches[3];
+          if(!searchField4.getText().trim().equals("")){
+           comboIndex = searchCombo4.getSelectedIndex();
+           query = searchField4.getText().trim();
+           searchList = this.searchCheck(query, comboIndex, search);
+           
+       }
+        
+          this.populateSubjectList(searchList);
+          
+          jProgressBar1.setValue(0);
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void searchResearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchResearchButtonActionPerformed
+        this.populateSubjectList();
+    }//GEN-LAST:event_searchResearchButtonActionPerformed
+
+    
+    private ArrayList<Person> searchCheck(String query, int comboIndex, SearchSystem search){
+    ArrayList<Person> searchList = new ArrayList<Person>();
+    switch(comboIndex){
+               case 0: 
+                   searchList = search.getListByFirstName(query);
+                   break;
+               case 1:
+                   searchList = search.getListByMiddleName(query);
+                   break;
+               case 2:
+                   searchList = search.getListByLastName(query);
+                   break;
+               case 3:
+                   searchList = search.getPersonByPassportNumber(query);
+                   break;
+               case 4:
+                   searchList = search.getListLocation(query);
+                   break;
+               case 5:
+                   searchList = search.getListByAge(query);
+                   break;
+               case 6:
+                   if(query.toUpperCase().equals("MALE"))
+                   searchList = search.getListByGender(true);
+                   else if (query.toUpperCase().equals("FEMALE"))
+                       searchList = search.getListByGender(false);
+                   searchList = persons;                      
+                   break;
+               case 7:
+               searchList = search.getListByProfession(query);
+               break;
+               case 8:
+                   searchList = search.getListByMaritalStatus(this.maritalStatusCheck(query));
+                   break;
+               default:
+                   searchList = persons;
+                   break;
+           }
+    
+    
+    return searchList;
+    }
+
+    private int maritalStatusCheck(String query){
+     int response = 0;
+     String name;
+        for(int i = 0; i < Person.maritalStatusList.length; i++){
+            name = Person.maritalStatusList[i];
+        if(name.equals(query.toUpperCase()))
+            response = i;
+        }
+    return response;
+    }
+    
+    public void populateSubjectList(ArrayList<Person> persons) {
+        if (!persons.isEmpty()) {
+            personList = new String[persons.size()];
+            for (int i = 0; i < personList.length; i++) {
+                personList[i] = persons.get(i).getIDString();
+            subjectList.setListData(personList);
+        entryInformation.setText("Entries: " + personList.length);
+            }
+        }
+        else {
+        personList = new String[1];
+        personList[0] = "";
+                subjectList.setListData(personList);
+        entryInformation.setText("Entries: " + 0);
+        }
+
+
+    }
     public void populateSubjectList() {
         if (!persons.isEmpty()) {
             personList = new String[persons.size()];
@@ -1427,6 +1589,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel searchLabel3;
     private javax.swing.JLabel searchLabel4;
     private javax.swing.JPanel searchPanel;
+    private javax.swing.JButton searchResearchButton;
     private javax.swing.JScrollPane searchScrollPane;
     private javax.swing.JComboBox<String> sortCombo;
     private javax.swing.JLabel sortLabel;
@@ -1444,7 +1607,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField townCityField1;
     private javax.swing.JScrollPane viewScrollPane;
     // End of variables declaration//GEN-END:variables
-    private SearchSystem researcherA;// Performs a search at the request of user
-    private SearchSystem researcherB; // Used in case of multiple search criteria
+ 
 
 }
