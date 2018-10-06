@@ -25,6 +25,7 @@ public class View extends javax.swing.JFrame {
     private String[] personList;
     private Person selectedPerson;
     private javax.swing.JFileChooser filechooser = new JFileChooser();
+    private static String version = "1.0";
 
     /**
      * Creates new form View
@@ -507,6 +508,11 @@ public class View extends javax.swing.JFrame {
         });
 
         editSaveButton.setText("Save");
+        editSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSaveButtonActionPerformed(evt);
+            }
+        });
 
         editDoIssueField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
@@ -970,7 +976,7 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Identity and Catalogue Database\n Version "+this.version+"\nThank You for using this application\nIf there are any issues, conctact me on +447745169495 \nor by email on james.agbotta@gmail.com .", "About This Application", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
@@ -1099,7 +1105,7 @@ public class View extends javax.swing.JFrame {
         }
         selectedPerson = new Person();
         this.populateSubjectList();
-        entries = persons.size();
+       
 
     }//GEN-LAST:event_addSaveButtonActionPerformed
 
@@ -1170,18 +1176,60 @@ public class View extends javax.swing.JFrame {
 
     private void editDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDeleteButtonActionPerformed
         // TODO add your handling code here:
+        if(!persons.isEmpty()){
+        int option = JOptionPane.showConfirmDialog(null, "Are you sure you wish to delete this entry?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+       if (option == JOptionPane.YES_OPTION){
         this.clearEditForms();
+       }
+        }
     }//GEN-LAST:event_editDeleteButtonActionPerformed
 
+    private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
+       int index = subjectList.getSelectedIndex();
+        Person temp = selectedPerson;
+        if(persons.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Nothing to Edit. \nNothing to save.");
+       }
+       else{
+        selectedPerson = new Person();
+        selectedPerson.setTitle(editTitleTextField.getText().trim());
+        selectedPerson.setFirstName(editFirstNameField1.getText().trim());
+        selectedPerson.setMiddleName(editMidNameField1.getText().trim());
+        selectedPerson.setLastName(editLastNameField1.getText().trim());
+        selectedPerson.setDate(editDOBField1.getText().trim());
+        selectedPerson.setProfession(editProfessionField.getText().trim());
+        selectedPerson.setGender(editMaleRadioButton1.isSelected());
+        selectedPerson.setDate(editDOBField1.getText());
+        selectedPerson.setMaritalStatus(maritalStatusCombo1.getSelectedIndex());
+        selectedPerson.setAddress(new Address(houseNumberField1.getText().trim(),streetNameField1.getText().trim(),postCodeField1.getText().trim(),townCityField1.getText().trim()));
+        selectedPerson.setTelephone(new Telephone(phoneNumberField1.getText().trim(),phoneNumberTypeCombo1.getSelectedIndex()));
+        selectedPerson.setPassport(new Passport(passportNumberField1.getText(),editPlaceOfIssueField.getText(),editDoIssueField.getText(),editDoExpiryField.getText()));
+        this.clearEditForms();
+        persons.remove(index);
+        persons.add(index, selectedPerson);
+        this.populateSubjectList();
+       }
+        
+        
+        
+    }//GEN-LAST:event_editSaveButtonActionPerformed
+
     public void populateSubjectList() {
-        if (persons.size() != 0) {
+        if (!persons.isEmpty()) {
             personList = new String[persons.size()];
             for (int i = 0; i < personList.length; i++) {
                 personList[i] = persons.get(i).getIDString();
+            subjectList.setListData(personList);
+        entryInformation.setText("Entries: " + personList.length);
             }
         }
-        subjectList.setListData(personList);
-        entryInformation.setText("Entries: " + personList.length);
+        else {
+        personList = new String[1];
+        personList[0] = "";
+                subjectList.setListData(personList);
+        entryInformation.setText("Entries: " + 0);
+        }
+
 
     }
 
@@ -1209,6 +1257,7 @@ public class View extends javax.swing.JFrame {
     }
 
     private void clearEditForms() {
+       
         editTitleTextField.setText("");
         editFirstNameField1.setText("");
         editMidNameField1.setText("");
@@ -1217,20 +1266,22 @@ public class View extends javax.swing.JFrame {
         editDOBField1.setText("");
         editDoIssueField.setText("");
         editDoExpiryField.setText("");
-        phoneNumberField1.setText("Phone Number");
+        phoneNumberField1.setText("");
         phoneNumberTypeCombo1.setSelectedIndex(0);
         editGenderRadioGroup.clearSelection();
         maritalStatusCombo1.setSelectedIndex(0);
-        houseNumberField1.setText("House/ Flat Number");
-        streetNameField1.setText("Street Name");
-        postCodeField1.setText("Post Code");
-        townCityField1.setText("Town/City");
+        houseNumberField1.setText("");
+        streetNameField1.setText("");
+        postCodeField1.setText("");
+        townCityField1.setText("");
         passportNumberField1.setText("");
         editPlaceOfIssueField.setText("");
         try {
             if (!persons.isEmpty() && persons.contains(selectedPerson)) {
                 persons.remove(selectedPerson);
+                
             }
+           
         } catch (ArrayIndexOutOfBoundsException e) {
         }
         this.populateSubjectList();
