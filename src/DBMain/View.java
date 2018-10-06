@@ -24,18 +24,19 @@ public class View extends javax.swing.JFrame {
     private ArrayList<Person> persons;
     private Person selectedPerson;
     private int entries;
-    
+    private javax.swing.JFileChooser filechooser = new JFileChooser();
 
     /**
      * Creates new form View
      */
     public View() {
+        io = new InOut();
         entries = 0;
         persons = new ArrayList<Person>();
         searches = new SearchSystem[4];
         searches[1] = new SearchSystem(persons);
         selectedPerson = new Person();
-        
+
         initComponents();
     }
 
@@ -173,6 +174,9 @@ public class View extends javax.swing.JFrame {
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         closeMenuItem = new javax.swing.JMenuItem();
+        fileMenu1 = new javax.swing.JMenu();
+        aboutMenuItem = new javax.swing.JMenuItem();
+        contactMenuItem = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -854,6 +858,11 @@ public class View extends javax.swing.JFrame {
 
         saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setText("Save");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         closeMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
@@ -866,6 +875,22 @@ public class View extends javax.swing.JFrame {
         fileMenu.add(closeMenuItem);
 
         jMenuBar1.add(fileMenu);
+
+        fileMenu1.setText("Help");
+
+        aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu1.add(aboutMenuItem);
+
+        contactMenuItem.setText("Contact");
+        fileMenu1.add(contactMenuItem);
+
+        jMenuBar1.add(fileMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -907,26 +932,75 @@ public class View extends javax.swing.JFrame {
     }//GEN-LAST:event_closeMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-        javax.swing.JFileChooser filechooser = new JFileChooser();
+
         filechooser.showOpenDialog(jMenu1);
         io = new InOut(filechooser.getSelectedFile());
         jProgressBar1.setValue(10);// number should be from 0-100
+
     }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        if(persons.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Database is empty.\nNothing to save");
+        }
+        else{
+        try {
+            int option = JOptionPane.NO_OPTION;
+            File doesThis;
+            while (option == JOptionPane.NO_OPTION) {
+                if (io.getFilePath().equals("")) {
+                    filechooser.showSaveDialog(jMenu1);
+                    doesThis = filechooser.getSelectedFile();
+                if (doesThis.exists() && doesThis.isFile()) {
+                    option = JOptionPane.showConfirmDialog(null, "Do you wish to over write this file?", "OverWrite?", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
+                        io.saveFile(persons, doesThis.getPath());
+                    }
+                }
+                break;
+                }
+                doesThis = io.getFile();
+                if (doesThis.exists() && doesThis.isFile()) {
+                    option = JOptionPane.showConfirmDialog(null, "Do you wish to over write this file?", "OverWrite?", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
+                        io.saveFile(persons, doesThis.getPath());
+                    }
+
+                }
+                else{
+                 filechooser.showSaveDialog(jMenu1);
+                    doesThis = filechooser.getSelectedFile();
+                if (doesThis.exists() && doesThis.isFile()) {
+                    option = JOptionPane.showConfirmDialog(null, "Do you wish to over write this file?", "OverWrite?", JOptionPane.YES_NO_OPTION);
+                    if (option == JOptionPane.YES_OPTION) {
+                        io.saveFile(persons, doesThis.getPath());
+                    }
+                }
+                }
+            }
+        } catch (java.lang.NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Cannot Find File Location, Cannot save.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+    }//GEN-LAST:event_saveMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        View main = new View();
-        /* Set the Nimbus look and feel */
+
+        /* Set the Windows look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* If Windows (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -942,21 +1016,23 @@ public class View extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        View main = new View();
         /* Create and display the form */
         main.listModel = new DefaultListModel();
 
         main.subjectList.setModel(main.listModel);
-        System.out.println("" + (LocalDate.parse("1992-02-10")));
-        
+        // System.out.println("" + (LocalDate.parse("1992-02-10")));
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 main.setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JButton addClearButton;
     private javax.swing.JPanel addEntryPanel;
     private javax.swing.JScrollPane addEntryScrollPane;
@@ -965,6 +1041,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JRadioButton ascendRadioButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JMenuItem closeMenuItem;
+    private javax.swing.JMenuItem contactMenuItem;
     private javax.swing.JLabel dateOfIssueLabel;
     private javax.swing.JRadioButton descendRadioButton;
     private javax.swing.JFormattedTextField doExpiryField;
@@ -994,6 +1071,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextArea entryViewArea;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu fileMenu1;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel firstNameLabel1;

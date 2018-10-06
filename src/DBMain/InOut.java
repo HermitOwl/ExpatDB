@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 import javax.swing.JOptionPane;
+
 /**
  *Input Output class for handling file and event based IO
  * 
@@ -19,7 +20,16 @@ public class InOut {
     private String filePath;
     private File file;
     private Scanner input;
-    //"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    private PrintWriter outSave;
+    //"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    
+    public InOut(){
+    this.filePath="";
+    file = null;
+    persons = new ArrayList<Person>();
+    tokens = new ArrayList<String>();
+
+    }
     
     public InOut(File file){
         try{
@@ -27,6 +37,7 @@ public class InOut {
         persons = new ArrayList<Person>();
         tokens = new ArrayList<String>();
         this.file = file;
+
         
         input = new Scanner(file);
         String temp = "";
@@ -39,7 +50,41 @@ public class InOut {
         
         }
         catch (FileNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error", e.getMessage(), JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error", e.getMessage(), JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    public File getFile(){
+    return file;
+    }
+    
+    public String getFilePath(){
+    return filePath;
+    }
+    
+    public void saveFile(ArrayList<Person> toSave, String filePath){
+       persons = toSave;
+       try{
+       outSave = new PrintWriter(filePath);
+       String outString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <Database> \n";
+       
+           for (Person person : persons) {
+               outString = outString + person.toXMLString();
+           }
+       outString = outString +"\n </Database>";
+       
+       outSave.print(outString);
+       outSave.close();
+       
+       }
+       catch(FileNotFoundException e){   
+           JOptionPane.showMessageDialog(null, "Error- File not Found", e.getMessage(), JOptionPane.ERROR_MESSAGE);
+       
+       }
+       catch(java.lang.NullPointerException e){
+        JOptionPane.showMessageDialog(null, "Empty Database, Cannot save", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
     }
 }
