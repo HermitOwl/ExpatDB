@@ -1364,10 +1364,12 @@ public class View extends javax.swing.JFrame {
         if (!persons.isEmpty()) {
             personList = new String[persons.size()];
             for (int i = 0; i < personList.length; i++) {
+                System.out.println(persons.get(i).toString());
                 personList[i] = persons.get(i).getIDString();
-            subjectList.setListData(personList);
-        entryInformation.setText("Entries: " + personList.length);
+          
+        
             }
+             
         }
         else {
         personList = new String[1];
@@ -1375,8 +1377,8 @@ public class View extends javax.swing.JFrame {
                 subjectList.setListData(personList);
         entryInformation.setText("Entries: " + 0);
         }
-
-
+        entryInformation.setText("Entries: " + personList.length);
+        subjectList.setListData(personList);
     }
 
     private void clearAddForms() {

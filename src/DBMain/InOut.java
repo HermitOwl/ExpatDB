@@ -148,6 +148,8 @@ public class InOut {
                     person.setPassport(passprt);
                     person.setProfession(profession);
                     persons.add(person);
+                    //TODO: REmove below 
+                   // System.out.println(persons.get(i).toString());
                 }
 
             }
